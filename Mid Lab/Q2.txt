@@ -1,0 +1,58 @@
+Include Irvine32.inc
+.data
+	messageOP1 BYTE "Operand 1: ", 0
+	messageOP2 BYTE "Operand 2: ", 0
+	messageOP3 BYTE "Operator: ", 0
+	operand1 DWORD ?
+	operand2 DWORD ?
+	operator BYTE 2 DUP(?), 0
+.code
+
+main PROC
+	mov edx, 0
+	mov edx, OFFSET messageOP1
+	call WriteString
+	mov edx, 0
+	call Readint
+	mov operand1, eax
+
+	mov edx, 0
+	mov edx, OFFSET messageOP2
+	call WriteString
+	mov edx, 0
+	call Readint
+	mov operand2, eax
+
+	mov edx, 0
+	mov edx, OFFSET messageOP3
+	call WriteString
+	mov edx, 0
+	call ReadString
+
+	call calculator
+	call Writeint
+	Invoke ExitProcess,0
+main ENDP
+
+calculator PROC
+	cmp edx, "+"
+	je SUM
+	cmp edx, "-"
+	je MINUS
+	cmp edx, "*"
+	je PRODUCT
+	
+	SUM:
+		mov eax, operand1
+		add eax, operand2
+		ret
+	MINUS:
+		mov eax, operand1
+		sub eax, operand2
+		ret
+	PRODUCT:
+		mov eax, operand1
+		imul eax, operand2
+		ret
+calculator ENDP
+END main

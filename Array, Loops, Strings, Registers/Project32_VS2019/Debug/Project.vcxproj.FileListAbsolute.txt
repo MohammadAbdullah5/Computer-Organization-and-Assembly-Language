@@ -1,0 +1,3 @@
+D:\University\Computer Organization and Assembly Language\dem\Project32_VS2019\Debug\Project.exe
+D:\University\Computer Organization and Assembly Language\Week 2\Project32_VS2019\Debug\Project.exe
+D:\University\Computer Organization and Assembly Language\Week 3\Project32_VS2019\Debug\Project.exe

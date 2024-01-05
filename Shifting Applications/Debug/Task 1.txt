@@ -1,0 +1,22 @@
+INCLUDE IRVINE32.inc
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess proto,dwExitCode:dword
+.data
+sum DWORD 5
+minus DWORD 10
+multiply DWORD 9
+.code
+main proc
+     add sum, 6
+     sub minus, 7
+     mov eax, minus
+     mul sum
+     mul multiply
+
+     call writeint
+     
+   	 invoke ExitProcess,0
+main endp
+end main
